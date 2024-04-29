@@ -4,12 +4,13 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import logo from "../../../public/logo.png"
+import { usePathname } from 'next/navigation'
 
 
 
 export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false);
-
+  
   const handleScroll = () => {
     if (window.scrollY >= window.innerHeight) {
       setIsScrolling(true);
@@ -39,15 +40,21 @@ export default function Navbar() {
 }
 
 function NavbarFixed() {
+  const pathname=usePathname()
+  console.log(pathname)
   return (
-    <nav className="fixed z-50 flex items-center justify-between w-full px-8 py-2">
+    <motion.nav
+    initial={{opacity:0,y:-50}}
+    animate={{opacity:1,y:0}}
+    transition={{duration:1}}
+    className={`fixed z-[50] top-0 flex items-center justify-between w-full px-8 py-2 ${pathname==='/'?"":"backdrop-blur-sm bg-white/[0.6] border-b border-neutral-200"}`}>
       <div className="flex items-center gap-2 text-white">
         <Image src={logo} alt="logo" className="h-8 -mr-1 w-8"></Image>
-        <p className=" font-bold text-xl tracking-tighter mt-2	font-mono text-black">Wind Templates</p>
+        <p className="z-100 sticky font-bold text-xl tracking-tighter mt-2	font-mono text-black">Wind Templates</p>
       </div>
     <SquigglyUnderline></SquigglyUnderline>
 
-    </nav>
+    </motion.nav>
   );
 }
 
@@ -59,7 +66,7 @@ function NavbarScroll({ isScrolling }) {
       animate={isScrolling ? "animate" : "initial"}
       exit="exit"
       variants={NavAnimations}
-      className="fixed z-20 w-52 h-10 justify-between items-center  bg-black/10 flex rounded-md pr-3 left-1/2 top-10"
+      className="fixed z-20 w-52 h-10 justify-between items-center backdrop-blur-sm bg-white/[0.6] border-b border-neutral-200 flex rounded-md pr-3 left-1/2 top-4"
     >
         <Image src={logo} alt="logo" className="h-10  w-10"></Image>
       <SquigglyUnderline></SquigglyUnderline>
@@ -92,19 +99,23 @@ const NavAnimations = {
 
 
 
-const navigation = [{ name: "Templates" }, { name: "Services" }];
+const navigation = [{ name: "Templates",Link:'/templates' }, { name: "Services" ,Link:'/services'}];
 
 export const SquigglyUnderline = () => {
-  const [selectedLink, setSelectedLink] = useState("Home");
-
+  const pathname = usePathname().replace('/','') || "Home";
+  const [selectedLink, setSelectedLink] = useState(pathname[0].toUpperCase() + pathname.slice(1));
+  useEffect(()=>{
+    setSelectedLink(pathname[0].toUpperCase() + pathname.slice(1))
+  },[pathname])
   return (
     <div className="flex gap-4">
       {navigation.map((item) => {
         const isSelected = item.name === selectedLink;
         return (
-          <div
+          <Link
+            href={item.Link}
             key={item.name}
-            className={`relative text-sm leading-6 no-underline ${
+            className={`relative text-sm leading-6 cursor-pointer no-underline ${
               isSelected ? "font-semibold text-black" : " text-slate-600"
             }`}
             onClick={() => setSelectedLink(item.name)}
@@ -133,7 +144,7 @@ export const SquigglyUnderline = () => {
                 </svg>
               </motion.div>
             ) : null}
-          </div>
+          </Link>
         );
       })}
     </div>

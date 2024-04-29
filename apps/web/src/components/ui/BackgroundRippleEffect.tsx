@@ -1,5 +1,6 @@
-
 "use client";
+
+
 import type { NextPage } from "next";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
@@ -7,13 +8,17 @@ import { cn } from "../../lib/utils/cn";
 
 export const BackgroundCellAnimation = () => {
 return (
-  <div className="relative bg-white flex justify-center overflow-hidden">
+  <div className={` relative bg-white flex justify-center overflow-hidden`}>
     <BackgroundCellCore />
-    <div className="relative z-50 mt-40 pointer-events-none select-none">
-    <h1 className="md:text-2xl lg:text-7xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-800  pointer-events-none">
-        Background cell animation <br />
-        with framer motion
-      </h1>
+    <div className="relative z-50 mb-4 mt-28 pointer-events-none select-none">
+    <motion.h1 
+    initial={{opacity:0,scale:2,y:-20}}
+    animate={{opacity:1,scale:1,y:0}}
+    transition={{duration:1}}
+    className="md:text-2xl lg:text-7xl tracking-tighter	 font-medium text-center bg-clip-text text-transparent bg-gradient-to-tr from-slate-700 via-slate-600 to-neutral-900  pointer-events-none">
+       Explore Top-notch Templates<br />
+       For Your Next Project
+      </motion.h1>
     </div>
   </div>
 );

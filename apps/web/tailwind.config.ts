@@ -20,9 +20,15 @@ module.exports = {
         // Add additional custom colors here if needed
       },
       animation: {
+        "text-gradient": "text-gradient 4s linear infinite",
         aurora: "aurora 60s linear infinite",
       },
       keyframes: {
+        "text-gradient": {
+          "to": {
+            "backgroundPosition": "200% center"
+          }
+        },
         aurora: {
           from: {
             backgroundPosition: "50% 50%, 50% 50%",
