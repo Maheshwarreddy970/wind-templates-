@@ -12,7 +12,12 @@ export default function TemplateCard() {
             {
                 Templatelist.map((data) =>
                 (<div className='grid grid-cols-3 gap-7 m-7 w-full shadow-md rounded-lg'>
-                    <div className=' relative w-60 h-48'>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: [1.1, 1] }}
+                        transition={{ duration: 1 }}
+                        
+                        className=' relative w-60 h-48'>
                         <span className='mt-5 flex justify-center text-xl font-semibold'>
                             {data.Title}
                         </span>
@@ -21,11 +26,11 @@ export default function TemplateCard() {
                         </p>
                         <div className='w-full absolute bottom-4 ml-2 flex gap-3 px-1'>
                             <Link href={data.Link} target='_blank'>
-                            <AddCardButton word={"Live Peview"}></AddCardButton>
+                                <AddCardButton word={"Live Peview"}></AddCardButton>
                             </Link>
                             <AddCardButton word={"Documention"}></AddCardButton>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}

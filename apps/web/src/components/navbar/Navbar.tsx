@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, scroll } from "framer-motion";
 import Image from "next/image";
 import logo from "../../../public/logo.png"
 import { usePathname } from 'next/navigation'
@@ -41,13 +41,27 @@ export default function Navbar() {
 
 function NavbarFixed() {
   const pathname=usePathname()
-  console.log(pathname)
+  const [scrollY, setScrollY] = useState(0);
+
+  function logit() {
+    setScrollY(Math.round(window.pageYOffset));
+  }
+
+  useEffect(() => {
+    function watchScroll() {
+      window.addEventListener("scroll", logit);
+    }
+    watchScroll();
+    return () => {
+      window.removeEventListener("scroll", logit);
+    };
+  });
   return (
     <motion.nav
     initial={{opacity:0,y:-50}}
     animate={{opacity:1,y:0}}
     transition={{duration:1}}
-    className={`fixed z-[50] top-0 flex items-center justify-between w-full px-8 py-2 ${pathname==='/'?"":"backdrop-blur-sm bg-white/[0.6] border-b border-neutral-200"}`}>
+    className={`fixed z-[50]  top-0 flex items-center justify-between w-full px-8 py-2 ${scrollY>100?"backdrop-blur-sm border-b bg-white/[0.6] border-neutral-200":""}`}>
       <div className="flex items-center gap-2 text-white">
         <Image src={logo} alt="logo" className="h-8 -mr-1 w-8"></Image>
         <p className="z-100 sticky font-bold text-xl tracking-tighter mt-2	font-mono text-black">Wind Templates</p>
