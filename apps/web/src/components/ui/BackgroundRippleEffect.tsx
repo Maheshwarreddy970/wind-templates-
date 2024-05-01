@@ -8,14 +8,14 @@ import { cn } from "../../lib/utils/cn";
 
 export const BackgroundCellAnimation = () => {
 return (
-  <div className={` relative bg-white flex justify-center overflow-hidden`}>
+  <div className={`w-full relative bg-white flex justify-center overflow-hidden`}>
     <BackgroundCellCore />
     <div className="relative z-50 mb-4 mt-28 pointer-events-none select-none">
     <motion.h1 
     initial={{opacity:0,scale:2,y:-20}}
     animate={{opacity:1,scale:1,y:0}}
     transition={{duration:1}}
-    className="md:text-2xl lg:text-7xl tracking-tighter	 font-medium text-center bg-clip-text text-transparent bg-gradient-to-tr from-slate-700 via-slate-600 to-neutral-900  pointer-events-none">
+    className="text-2xl lg:text-7xl tracking-tighter	 font-medium text-center bg-clip-text text-transparent bg-gradient-to-tr from-slate-700 via-slate-600 to-neutral-900  pointer-events-none">
        Explore Top-notch Templates<br />
        For Your Next Project
       </motion.h1>

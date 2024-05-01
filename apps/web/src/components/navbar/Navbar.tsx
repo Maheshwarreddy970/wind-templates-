@@ -63,8 +63,8 @@ function NavbarFixed() {
     transition={{duration:1}}
     className={`fixed z-[50]  top-0 flex items-center justify-between w-full px-8 py-2 ${scrollY>100?"backdrop-blur-sm border-b bg-white/[0.6] border-neutral-200":""}`}>
       <div className="flex items-center gap-2 text-white">
-        <Image src={logo} alt="logo" className="h-8 -mr-1 w-8"></Image>
-        <p className="z-100 sticky font-bold text-xl tracking-tighter mt-2	font-mono text-black">Wind Templates</p>
+        <Image src={logo} alt="logo" className="w-10 h-10 sm:h-8 -mr-1 sm:w-8"></Image>
+        <p className="z-100 hidden sm:block sticky font-bold text-xl tracking-tighter mt-2	font-mono text-black">Wind Templates</p>
       </div>
     <SquigglyUnderline></SquigglyUnderline>
 

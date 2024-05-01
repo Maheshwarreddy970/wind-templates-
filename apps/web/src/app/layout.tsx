@@ -19,7 +19,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={` ${inter.className}`}>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>

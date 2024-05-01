@@ -46,7 +46,7 @@ export const ServiceCard = ({data}) => {
   return (
     <>
         <div
-          className="z-40 card relative h-full w-64 rounded-xl bg-white transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform"
+          className="z-40 card relative h-full w-80 sm:w-64 rounded-xl bg-white transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform"
           onMouseMove={onMouseMove}
           onMouseLeave={onMouseLeave}
           style={{

@@ -18,7 +18,7 @@ const List = [
 
 const CardAnimatedBorderGradient = () => {
     return (
-        <div className="flex gap-32">
+        <div className="flex gap-6 scale-75 md:scale-100 md:gap-32">
             {
                 List.map((icons) => (
                     <motion.div

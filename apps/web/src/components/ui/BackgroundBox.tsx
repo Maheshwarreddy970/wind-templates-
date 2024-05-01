@@ -15,7 +15,7 @@ export const BackgroundBox = () => {
           initial={{ opacity: 0, scale: 2, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="md:text-5xl z-50 tracking-tighter	bg-gradient-to-r from-gray-700 via-gray-600 to-gray-900 text-center bg-clip-text text-transparent bottom-1 font-semibold  pointer-events-none">
+          className="md:text-5xl text-xl z-50 tracking-tighter	bg-gradient-to-r from-gray-700 via-gray-600 to-gray-900 text-center bg-clip-text text-transparent bottom-1 font-semibold  pointer-events-none">
           Looking for personalized website or application?<br />
           Look no further — <span className=" inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-900">
             we've got everything you need.
