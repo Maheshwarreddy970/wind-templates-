@@ -80,7 +80,7 @@ function NavbarScroll({ isScrolling }) {
       animate={isScrolling ? "animate" : "initial"}
       exit="exit"
       variants={NavAnimations}
-      className="fixed z-20 w-52 h-10 justify-between items-center backdrop-blur-sm bg-white/[0.6] border-b border-neutral-200 flex rounded-md pr-3 left-1/2 top-4"
+      className="fixed z-[50] w-52 h-10 justify-between items-center backdrop-blur-sm bg-white/[0.6] border-b border-neutral-200 flex rounded-md pr-3 left-1/2 top-4"
     >
         <Image src={logo} alt="logo" className="h-10  w-10"></Image>
       <SquigglyUnderline></SquigglyUnderline>

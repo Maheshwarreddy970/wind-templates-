@@ -16,10 +16,10 @@ export default function page() {
         initial={{ opacity: 0, x: -500 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className='overflow-hiddenmt-20 w-full  mt-16 fixed h-screen sm:w-3/12'>
+        className='overflow-hiddenmt-20 w-full  mt-16 sticky top-20 h-screen sm:w-3/12'>
         <SideNavbar></SideNavbar>
       </motion.div>
-      <div className='p-1 w-full sm:w-5/6	 mt-24 ml-80'>
+      <div className='p-1 w-full sm:w-5/6	 mt-24'>
         <TemplateCard></TemplateCard>
       </div>
     </main>
